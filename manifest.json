@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "inkglow",
+	"name": "InkGlow",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Adds a visual glow effect to newly typed text",
+	"author": "BDZendure",
+	"authorUrl": "https://github.com/BDZendure",
+	"fundingUrl": "https://buymeacoffee.com/bdzendure",
 	"isDesktopOnly": false
 }
