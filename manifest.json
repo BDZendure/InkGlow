@@ -1,11 +1,11 @@
 {
 	"id": "inkglow",
 	"name": "InkGlow",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Adds a visual glow effect to newly typed text.",
 	"author": "BDZendure",
 	"authorUrl": "https://github.com/BDZendure",
 	"fundingUrl": "https://buymeacoffee.com/bdzendure",
-	"isDesktopOnly": false
+	"isDesktopOnly": true
 }
