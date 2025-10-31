@@ -11,10 +11,20 @@ InkGlow adds a subtle glow effect to newly typed text, which gradually fades awa
 
 ## Installation
 
-1. Clone or download this repository into your Obsidian plugins folder: `./obsidian/plugins`
-2. Run in terminal:
+1. Go to your Obsidian plugins folder (`./obsidian/plugins`) and run:
+```bash
+git clone https://github.com/BDZendure/InkGlow.git
+```
+2. Build dependencies by running:
 ```bash
 npm install
 npm run build
 ```
-3. Restart the app if necessary and enable InkGlow under Settings → Community Plugins → Installed Plugins. 
+3. Restart the app if necessary and enable InkGlow under Settings → Community Plugins → Installed Plugins → InkGlow. 
+
+## If you want to support me
+
+Help a brotha out
+
+<a href="https://buymeacoffee.com/bdzendure" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+

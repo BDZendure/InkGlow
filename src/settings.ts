@@ -8,7 +8,7 @@ export interface InkGlowSettings {
 }
 
 export const DEFAULT_SETTINGS: InkGlowSettings = {
-	transitionDuration: 2,
+	transitionDuration: 2.5,
 	glowIntensity: 0.1,
 };
 
