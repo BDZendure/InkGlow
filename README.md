@@ -4,6 +4,8 @@ InkGlow adds a subtle glow effect to newly typed text, which gradually fades awa
 
 ## Features
 
+![img](assets/Inkglow_typing.gif?raw=true)
+
 - **Animated Glow Effect** - New text glows momentarily before returning to normal.
 - **Adaptive Styling** - Glow is reactive to your theme’s text color and appearance mode. 
 - **Customizable Duration & Intensity** - Settings tab allows control of how long and how bright the glow lasts.
