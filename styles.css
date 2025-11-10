@@ -1,8 +1,21 @@
-/*
+@keyframes inkGlowFade {
+	0% {
+		filter: drop-shadow(0 0 calc(1.2em * var(--inkglow-intensity, 1)) currentColor);
+		text-shadow: 0 0 calc(1em * var(--inkglow-intensity, 1)) currentColor;
+	}
+	50% {
+		filter: drop-shadow(0 0 calc(0.6em * var(--inkglow-intensity, 1)) currentColor);
+		text-shadow: 0 0 calc(0.5em * var(--inkglow-intensity, 1)) currentColor;
+	}
+	100% {
+		filter: none;
+		text-shadow: none;
+	}
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
-
-*/
+.inkglow-text {
+	display: inline-block;
+	color: inherit !important;
+	will-change: filter, text-shadow;
+	animation: inkGlowFade var(--inkglow-dur, 1200ms) ease-out both;
+}

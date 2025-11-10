@@ -1,6 +1,6 @@
 import { Plugin } from "obsidian";
 import { EditorView, ViewPlugin, ViewUpdate, Decoration, DecorationSet } from "@codemirror/view";
-import { RangeSetBuilder } from "@codemirror/state";
+import { RangeSetBuilder, Extension } from "@codemirror/state";
 import { InkGlowSettingTab, InkGlowSettings, DEFAULT_SETTINGS } from "./settings";
 
 interface InkGlowRange {
@@ -75,58 +75,27 @@ class InkGlowViewPlugin {
 /* ---------- Main Plugin Class ---------- */
 export default class InkGlowPlugin extends Plugin {
 	settings: InkGlowSettings;
-	private editorExtension: any;
+	private editorExtension: Extension;
 
 	async onload() {
-		console.log("Loading InkGlow Plugin");
 		await this.loadSettings();
 
-		this.addGlowStyles();
 		this.addSettingTab(new InkGlowSettingTab(this.app, this));
 		this.registerEditorExtensions();
 	}
 
 	registerEditorExtensions() {
-		const self = this;
+		const settings = this.settings;
 		this.editorExtension = ViewPlugin.fromClass(
 			class extends InkGlowViewPlugin {
 				constructor(view: EditorView) {
-					super(view, self.settings);
+					super(view, settings);
 				}
 			},
 			{ decorations: (v) => v.decorations }
 		);
 
 		this.registerEditorExtension([this.editorExtension]);
-	}
-
-	addGlowStyles() {
-		const style = document.createElement("style");
-		style.id = "inkglow-styles";
-		style.textContent = `
-			@keyframes inkGlowFade {
-				0% {
-					filter: drop-shadow(0 0 calc(1.2em * var(--inkglow-intensity, 1)) currentColor);
-					text-shadow: 0 0 calc(1em * var(--inkglow-intensity, 1)) currentColor;
-				}
-				50% {
-					filter: drop-shadow(0 0 calc(0.6em * var(--inkglow-intensity, 1)) currentColor);
-					text-shadow: 0 0 calc(0.5em * var(--inkglow-intensity, 1)) currentColor;
-				}
-				100% {
-					filter: none;
-					text-shadow: none;
-				}
-			}
-
-			.inkglow-text {
-				display: inline-block;
-				color: inherit !important;
-				will-change: filter, text-shadow;
-				animation: inkGlowFade var(--inkglow-dur, 1200ms) ease-out both;
-			}
-		`;
-		document.head.appendChild(style);
 	}
 
 	async loadSettings() {
@@ -136,10 +105,5 @@ export default class InkGlowPlugin extends Plugin {
 	async saveSettings() {
 		await this.saveData(this.settings);
 		this.app.workspace.updateOptions();
-	}
-
-	onunload() {
-		console.log("Unloading InkGlow Plugin");
-		document.getElementById("inkglow-styles")?.remove();
 	}
 }
